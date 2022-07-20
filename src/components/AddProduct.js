@@ -16,7 +16,7 @@ const AddProduct = () => {
         axios.post(`${base_url}/addProduct`, data).then(
             (response)=>{
                 console.log(response);
-                toast.success("API call successful !!");
+                toast.success("New Product has been added !!");
             },
             (error)=>{
                 console.log(error);
