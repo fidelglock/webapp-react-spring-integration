@@ -60,13 +60,17 @@ const AllProducts=()=>{
 
     
     const [product, setProduct]=useState([]);
+    const updateProducts =  (id)=>{
+        setProduct(product.filter((c)=>c.id != id));
+    };
+
     return(
         <div>
             <h1>All Products</h1>
             <p>List of all products are as follows ***DYNAMIC COMPONENT***</p>
             {
                 product.length>0? product.map((item)=>
-                <Product key={item.id} product={item}/>) : "Inventory is empty"
+                <Product key={item.id} product={item} update={updateProducts}/>) : "Inventory is empty"
             }
         </div>
     );

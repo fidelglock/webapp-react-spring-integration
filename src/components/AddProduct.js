@@ -47,7 +47,7 @@ const AddProduct = () => {
                 </FormGroup>
                 <Container className="text-center">
                     <Button type="submit" color="success">ADD Product</Button>
-                    <Button>CLR</Button>
+                    <Button type="reset">CLR</Button>
                 </Container>
             </Form>
         </Fragment>
