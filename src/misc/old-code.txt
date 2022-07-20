@@ -1,0 +1,82 @@
+App js
+
+
+
+import logo from './logo.svg';
+import './App.css';
+import Header from './components/Header';
+import Main from './components/Main';
+import Mid from './components/Mid';
+import Product from './components/Product';
+import AllProducts from './components/AllProducts';
+import AddProduct from './components/AddProduct';
+
+function App() {
+  return (
+    <div className="App">
+      <Header name="Header" title="First Card"/>
+      <hr/>
+      <Mid/>
+      <hr/>
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Edit <code>src/App.js</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header>
+      <hr/>
+      <Header name="Reserved Card" title="This is from App.js"/>
+      <hr/>
+      <Main/>
+      <hr/>
+      <AddProduct/>
+      <hr/>
+      <Product product={{id:"145", name:"Lays magic masala ***STATIC COMPONENT***"}}/>
+      <hr/>
+      <AllProducts/>
+    </div>
+  );
+}
+
+export default App;
+
+
+--------------------------------
+
+
+
+<Route path="/" component={Home2} exact />
+                        <Route path="/addProduct" component={AddProduct} exact />
+                        <Route path="/allProducts" component={AllProducts} exact />
+
+                        ----------------------------
+git -> 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
+----------------------------
+
+useEffect(()=>{
+        alert("useEffect HOOK has been triggered");
+        document.title="React | SpringBoot | Application";
+    }, []);
+
+--------------------------------
+
+const makeAPICall = async () => {
+        try {
+          const response = await fetch('https://spring-mongo-backend.herokuapp.com/', {mode:'cors'});
+          const data = await response.json();
+          console.log({ data });
+          toast.success("API call successful !!");
+        }
+        catch (e) {
+          console.log(e);
+          toast.error("API call failed !");
+        }
+      };
