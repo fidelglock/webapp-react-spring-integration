@@ -2,6 +2,7 @@ import React, { Fragment, useState, useEffect } from "react";
 import { Button, Container, Form, FormGroup, Input } from "reactstrap";
 import axios from "axios";
 import base_url from "../api/backend";
+import {ToastContainer, toast} from "react-toastify";
 
 const AddProduct = () => {
     const [product, setProduct]=useState([]);
@@ -9,14 +10,13 @@ const AddProduct = () => {
         console.log(product);
         sendDataToServer(product);
         e.preventDefault();
-
     };
+
     const sendDataToServer = (data) => {
-        axios.post(`${base_url}/addProduct`).then(
+        axios.post(`${base_url}/addProduct`, data).then(
             (response)=>{
                 console.log(response);
                 toast.success("API call successful !!");
-                setProduct(response.data);
             },
             (error)=>{
                 console.log(error);
@@ -24,17 +24,19 @@ const AddProduct = () => {
             }
         );
     };
+
     useEffect(()=>{
         document.title="Add Product | Page | React-Spring Application";
         toast("Toast message from first hook !");
     }, []);
+
     return(
         <Fragment>
             <Form onSubmit={handleForm}>
                 <FormGroup>
                     <label>Product ID</label>
                     <Input type="text" placeholder="Enter Unique Integer" name="pid" id="pid" onChange={(e)=>{ 
-                       setProduct({...product, id: e.target.value}); 
+                       setProduct({ ...product, id: e.target.value }); 
                     }}/>
                 </FormGroup>
                 <FormGroup>
@@ -50,6 +52,6 @@ const AddProduct = () => {
             </Form>
         </Fragment>
     );
-}
+};
 
 export default AddProduct;
