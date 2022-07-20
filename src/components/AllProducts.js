@@ -53,8 +53,8 @@ const AllProducts=()=>{
       };
     useEffect(()=>{
         console.log("Triggering 2nd Hook");
-       // makeAPICall();
-        getProducts();
+        makeAPICall();
+        //getProducts();
         //fetchApiData(APIURL);
     }, []);
 
